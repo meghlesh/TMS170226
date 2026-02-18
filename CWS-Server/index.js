@@ -80,6 +80,7 @@ app.use("/uploads", express.static("uploads"));
 
 const allowedOrigins = [
   "https://www.creativewebsolution.life",
+  "https://app-tmsdev-fe-fkeweybtbmh7a5cx.southindia-01.azurewebsites.net",
   "http://localhost:5173",
 ];
 
