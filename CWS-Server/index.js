@@ -991,7 +991,7 @@ app.post("/sendpasswordlink", async (req, res) => {
       { new: true },
     );
     //console.log("setusertoken",setusertoken)
-    const forLink = `https://www.creativewebsolution.life/forgotpassword/${userfind._id}/${setusertoken.verifytoken}`;
+    const forLink = ` https://app-tmsdev-fe-fkeweybtbmh7a5cx.southindia-01.azurewebsites.net/forgotpassword/${userfind._id}/${setusertoken.verifytoken}`;
     const resetPasswordHtml = await rePasswordTemplate(forLink);
 
     if (setusertoken) {
