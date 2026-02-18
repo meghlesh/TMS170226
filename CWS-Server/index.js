@@ -426,7 +426,7 @@ app.post(
       newEmployee.verifyToken = token;
       await newEmployee.save();
 
-      const verifyLink = `https://www.creativewebsolution.life/employee/verify/${
+      const verifyLink = ` https://app-tmsdev-fe-fkeweybtbmh7a5cx.southindia-01.azurewebsites.net/employee/verify/${
         newEmployee._id
       }/${encodeURIComponent(token)}`;
 
