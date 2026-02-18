@@ -37,6 +37,15 @@ const { getValidWorkingDays } = require("./services/dateUtils");
 const pollRoutes = require("./routes/pollRoutes");
 const Performance = require("./models/performanceSchema"); //added by jayshree
 
+process.on("uncaughtException", (err) => {
+  console.error("UNCAUGHT EXCEPTION:", err);
+});
+
+process.on("unhandledRejection", (err) => {
+  console.error("UNHANDLED REJECTION:", err);
+});
+
+
 // ✅ Import Cloudinary config (convert import → require)
 const { v2: cloudinary } = require("cloudinary");
 const { CloudinaryStorage } = require("multer-storage-cloudinary");
@@ -9927,6 +9936,8 @@ app.post("/performance/:id/reject", authenticate, async (req, res) => {
     });
   }
 });
+
+connectDB();
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, "0.0.0.0", () => {
