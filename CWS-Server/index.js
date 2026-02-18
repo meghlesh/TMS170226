@@ -1,3 +1,12 @@
+process.on("uncaughtException", (err) => {
+  console.error("🔥 UNCAUGHT EXCEPTION:", err);
+});
+
+process.on("unhandledRejection", (err) => {
+  console.error("🔥 UNHANDLED REJECTION:", err);
+});
+
+
 const express = require("express");
 const dotenv = require("dotenv");
 const bcrypt = require("bcrypt");
@@ -9931,9 +9940,20 @@ app.post("/performance/:id/reject", authenticate, async (req, res) => {
 
 
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`🚀 Server running on port ${PORT}`);
-});
+
+connectDB()
+  .then(() => {
+    console.log("✅ Database connected successfully");
+
+    app.listen(PORT, "0.0.0.0", () => {
+      console.log(`🚀 Server running on port ${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error("❌ Database connection failed:", err);
+    process.exit(1);
+  });
+
 
 //app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
 
