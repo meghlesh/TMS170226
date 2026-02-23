@@ -80,7 +80,7 @@ function PasswordReset() {
                 Get Reset Link
               </button>
               <div className="forgot-link1">
-                <Link to="/login" style={{ fontWeight: "500" }}>
+                <Link to="/" style={{ fontWeight: "500" }}>
                   Back To Login
                 </Link>
               </div>
