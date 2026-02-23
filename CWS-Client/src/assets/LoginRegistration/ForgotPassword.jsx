@@ -64,10 +64,10 @@ function ForgotPassword() {
       setConfirmPassword("");
       alert("Password set successfully");
       setMessage(true);
-      navigate("/login");
+      navigate("/");
     } else {
       alert("Link expired, generate new link");
-      navigate("/login");
+      navigate("/");
     }
   };
 
