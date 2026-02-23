@@ -149,7 +149,7 @@ const EmployeeVerify = () => {
         { id, token, password },
       );
       setMessage(res.data.message);
-      setTimeout(() => navigate("/login"), 2000);
+      setTimeout(() => navigate("/"), 2000);
     } catch (err) {
       setMessage(err.response?.data?.error || "Server error");
     }
@@ -218,7 +218,7 @@ const EmployeeVerify = () => {
             </div>
 
             <div className="forgot-link1">
-              <Link to="/login">Back To Login</Link>
+              <Link to="/">Back To Login</Link>
             </div>
 
             <button type="submit" className="btn btn-primary">
