@@ -57,7 +57,7 @@ function App() {
     <Router>
       <Routes>
         {/* Public Routes */}
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
         <Route
           path="/employee/verify/:id/:token"
           element={<EmployeeVerify />}
