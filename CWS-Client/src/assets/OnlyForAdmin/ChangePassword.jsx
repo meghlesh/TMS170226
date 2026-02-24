@@ -80,7 +80,7 @@ function ChangePassword() {
       localStorage.removeItem("refreshToken");
 
       setTimeout(() => {
-        window.location.href = "/login";
+        window.location.href = "/";
       }, 1500);
     } catch (err) {
       console.error("Failed to change password:", err);
