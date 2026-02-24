@@ -142,15 +142,15 @@ function Dashboard() {
       sessionStorage.clear();
 
       // ✅ Navigate once only
-      if (window.location.pathname !== "/login") {
-        navigate("/login", { replace: true });
+      if (window.location.pathname !== "/") {
+        navigate("/", { replace: true });
       }
       return;
     }
 
     const token = localStorage.getItem("accessToken");
     if (!token) {
-      navigate("/login", { replace: true });
+      navigate("/", { replace: true });
       return;
     }
 
@@ -183,7 +183,7 @@ function Dashboard() {
         console.error("Token check failed:", err?.response?.status);
         localStorage.clear();
         sessionStorage.clear();
-        if (isMounted) navigate("/login", { replace: true });
+        if (isMounted) navigate("/", { replace: true });
       });
 
     return () => {
@@ -195,7 +195,7 @@ function Dashboard() {
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
     if (!token) {
-      navigate("/login");
+      navigate("/");
       return;
     }
 
@@ -207,7 +207,7 @@ function Dashboard() {
       .catch(() => {
         localStorage.removeItem("accessToken");
         localStorage.removeItem("refreshToken");
-        navigate("/login");
+        navigate("/");
       });
   }, [navigate]);
 
@@ -240,7 +240,7 @@ function Dashboard() {
       // navigate once after clearing
       // Give time for spinner before redirect
       setTimeout(() => {
-        navigate("/login", { replace: true });
+        navigate("/", { replace: true });
       }, 800);
     } catch (err) {
       console.error("Logout error:", err);
@@ -252,7 +252,7 @@ function Dashboard() {
       // localStorage.removeItem("id");
       localStorage.clear();
 
-      navigate("/login", { replace: true });
+      navigate("/", { replace: true });
     } finally {
       // optional spinner stop (navigate will mount login)
       setIsLoggingOut(false);
