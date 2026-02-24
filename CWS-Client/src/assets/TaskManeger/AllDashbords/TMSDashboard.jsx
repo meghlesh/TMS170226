@@ -122,7 +122,7 @@ function TMSDashboard() {
   /////
   const handleLogout = () => {
     localStorage.clear();
-    window.location.href = "/login";
+    window.location.href = "/";
   };
 
   if (loading) {
