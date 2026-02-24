@@ -8,7 +8,7 @@ function BackButton() {
     if (isLoggedIn) {
       navigate(-1); // Go to previous page
     } else {
-      navigate("/login"); // Go to login/home page
+      navigate("/"); // Go to login/home page
     }
   };
 
