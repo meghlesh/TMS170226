@@ -72,6 +72,19 @@ cloudinary.config({
 //   credentials: true, // if sending cookies
 // }));
 
+// ADD THIS BLOCK HERE for the 304 cache clearing
+app.use((req, res, next) => {
+  res.set({
+    "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+    "Pragma": "no-cache",
+    "Expires": "0",
+    "Surrogate-Control": "no-store"
+  });
+  next();
+});
+
+
+
 /* ================= FILE UPLOAD ================= */
 const uploadPath = path.join(__dirname, "uploads");
 app.use("/uploads", express.static(uploadPath));
